@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #2b2b2b;
+    }
+
+    div {
+    margin: 50px auto;
+    width: 50%;
+    background-color: #717171;
+    padding: 20px;
+    border: 1px solid #838383;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    }
+
+    input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #989898;
+    border-radius: 5px;
+    box-sizing: border-box;
+    }
+
+    p {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    }
+
+    #result {
+    font-size: 24px;
+    color: #ffffff;
+    }
+
+    </style>
+</head>
+<body>
+    <div>
+        <label for="numberInput">Enter a number:</label>
+        <input type="number" id="numberInput" oninput="convertToRomanNumeral()">               
+        <p>The Roman numeral equivalent is: <span id="result"></span></p>
+    </div>
+    <script>
+        /**
+         * Converts a decimal number input into its equivalent Roman numeral representation, using the standard Roman numeral symbols and subtractive notation where appropriate. 
+         * The input value is obtained from an HTML input field, and the result is displayed in real-time in another HTML element. 
+         */
+
+        function convertToRomanNumeral() {
+        // Retrieve the number input value from the HTML input field
+        let num = document.getElementById("numberInput").value;
+        
+        // Define an array of Roman numeral values and symbols
+        let romanNumerals = [
+            { value: 1000, symbol: "M" },
+            { value: 900, symbol: "CM" },
+            { value: 500, symbol: "D" },
+            { value: 400, symbol: "CD" },
+            { value: 100, symbol: "C" },
+            { value: 90, symbol: "XC" },
+            { value: 50, symbol: "L" },
+            { value: 40, symbol: "XL" },
+            { value: 10, symbol: "X" },
+            { value: 9, symbol: "IX" },
+            { value: 5, symbol: "V" },
+            { value: 4, symbol: "IV" },
+            { value: 1, symbol: "I" }
+        ];
+
+        // Initialize an empty string to hold the Roman numeral equivalent of the number
+        let result = "";
+
+        // Loop through the Roman numeral array, starting with the highest value
+        for (let i = 0; i < romanNumerals.length; i++) {
+            // While the current value is less than or equal to the input number, subtract the value from the input number and add the corresponding symbol to the result string
+            while (num >= romanNumerals[i].value) {
+            result += romanNumerals[i].symbol;
+            num -= romanNumerals[i].value;
+            }
+        }
+        
+        // Update the HTML element with the result string
+        document.getElementById("result").innerHTML = result;
+        }
+    </script>
+</body>
+</html>
