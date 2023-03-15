@@ -1,6 +1,7 @@
 # Roman Numeral Converter
 
 This is a simple web application with a basic frontend that converts decimal numbers to their Roman numeral equivalent. It is built using HTML, CSS, and JavaScript.
+I created this project as an exercise to learn JavaScript and DOM manipulation.
 
 ## Usage
 
