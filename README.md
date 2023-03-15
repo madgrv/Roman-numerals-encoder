@@ -21,6 +21,7 @@ Alternatively, you can view a live demo of the application [here](https://madgrv
 
 ```
 function convert(num) {
+  // Define an array of Roman numeral values and symbols
   let romanNumerals = [
     { value: 1000, symbol: "M" },
     { value: 900, symbol: "CM" },
@@ -37,15 +38,21 @@ function convert(num) {
     { value: 1, symbol: "I" }
   ];
 
+  // Initialize an empty string to hold the Roman numeral equivalent of the number
   let result = "";
 
+  // Loop through the Roman numeral array, starting with the highest value
   for (let i = 0; i < romanNumerals.length; i++) {
+    // While the current value is less than or equal to the input number, subtract the value from the input number and add the corresponding symbol to the result string
     while (num >= romanNumerals[i].value) {
       result += romanNumerals[i].symbol;
       num -= romanNumerals[i].value;
     }
   }
+
+  // Return the result string
   return result;
 }
+
 
 ```
