@@ -19,7 +19,8 @@ Alternatively, you can view a live demo of the application [here](https://madgrv
 
 ## The original function
 
-    `function convert(num) {
+```
+function convert(num) {
   let romanNumerals = [
     { value: 1000, symbol: "M" },
     { value: 900, symbol: "CM" },
@@ -46,4 +47,5 @@ Alternatively, you can view a live demo of the application [here](https://madgrv
   }
   return result;
 }
-`
+
+```
